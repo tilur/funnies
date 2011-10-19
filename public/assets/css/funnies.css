@@ -1,0 +1,29 @@
+html 					{ margin:0px; padding:0px; }
+body					{ font:normal 16px 'Ubuntu Condensed'; color:#ccc; background-color:#333; margin:0px; padding:0px; background:url(../img/bg-gray-pattern.jpg) top center fixed; }
+
+h1						{ font:normal 3em 'Special Elite'; color:#ff0; margin:2px 0 10px 0; text-shadow:2px 2px 2px #000; }
+
+#tupperware				{ width:700px; margin:10px auto 0 auto; }
+
+.form-row				{ margin-bottom:10px; }
+.form-input				{ margin-top:2px; }
+.form-input input, .form-input textarea
+						{ border:solid 1px #ff0; border-radius:3px; background-color:#ddd; color:#000; font:normal .85em 'Ubuntu Condensed'; }
+.form-input input:focus, .form-input textarea:focus
+						{ box-shadow:0 0 7px #fff; }
+.form-row button		{ height:30px; background-color:#ff0; font:normal 1.2em 'Ubuntu Condensed'; border:solid 1px transparent; border-radius:6px; margin-right:5px; cursor:pointer; }
+.form-row button.last	{ margin-right:0px; }
+.form-row button:hover	{ box-shadow:0 0 7px #fff;  }
+
+.float-left					{ float:left; }
+.w50						{ width:50%; }
+.mb16						{ margin-bottom:16px; }
+
+.styled-hr					{ border-top:solid 1px #222; border-bottom:solid 1px #444; margin-bottom:16px; }
+
+#funny						{ width:700px; min-width:700px; max-width:700px; height:20px; min-height:20px; max-height:20px; }
+#sender						{ width:330px; }
+#receiver					{ width:350px; }
+#context					{ width:700px; min-width:700px; max-width:700px; height:35px; min-height:35px; max-height:35px; }
+#add_funnies-sender, #add_funnies-receiver, #add_funnies-context, #add_funnies-buttons
+							{ display:none; }
