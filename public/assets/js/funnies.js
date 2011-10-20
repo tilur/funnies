@@ -5,11 +5,6 @@ function add_funnies(way) {
 		$('#add_funnies-receiver').show();
 		$('#add_funnies-context').show();
 		$('#add_funnies-buttons').show();
-		/*
-		$('#wrapper-add_funnies_button').animate({height: 'toggle'}, 200, function() {
-			$('#wrapper-add_funnies').animate({height: 'toggle'}, 200);
-		});
-		*/
 	}
 	else if (way == 'hide') {
 		$('#funny').css({'height': '20px', 'max-height': '20px', 'min-height': '20px'});
@@ -17,10 +12,15 @@ function add_funnies(way) {
 		$('#add_funnies-receiver').hide();
 		$('#add_funnies-context').hide();
 		$('#add_funnies-buttons').hide();
-		/*
-		$('#wrapper-add_funnies').animate({height: 'toggle'}, 200, function() {
-			$('#wrapper-add_funnies_button').animate({height: 'toggle'}, 200);
-		});
-		*/
 	}
+}
+
+function showtab(which) {
+	$('#wrapper-funnies_post').find('.tabs').find('div').each(function () {
+		$(this).removeClass('active');
+		$('#' + $(this).attr('id') + '-posts').hide();
+	});
+
+	$('#' + which + '-posts').show();
+	$('#' + which).addClass('active');
 }

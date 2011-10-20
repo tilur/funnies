@@ -30,31 +30,36 @@
 	<div class="styled-hr"></div>
 </div>
 
-<script>
-	$('#funny').bind('focus', function() {
-		add_funnies('show');
-	})
-</script>
-
 <h1>Oh The Laughs</h1>
 
 <div id="wrapper-funnies_post">
 	<div class="tabs">
-		<div class="tab active">Funniest</div>
-		<div class="tab active">Recent</div>
+		<div id="tab-funniest" class="tab active">Funniest</div>
+		<div id="tab-recent" class="tab">Recent</div>
 	</div>
 
 	<div class="posts">
-		<div class="post funniest">
+		<div id="tab-funniest-posts" class="post funniest">
 			<?php foreach ($posts['funniest'] AS $i => $post) {
 				echo $post['f_body'].'<br>';
 			}?>
 		</div>
 
-		<div class="post recent">
+		<div id="tab-recent-posts" class="post recent">
 			<?php foreach ($posts['recent'] AS $i => $post) {
 				echo $post['f_body'].'<br>';
 			}?>
 		</div>
 	</div>
 </div>
+
+<script>
+	$('#funny').bind('focus', function() {
+		add_funnies('show');
+	});
+	$('#wrapper-funnies_post').find('.tabs').find('div').each(function () {
+		$(this).bind('click', function() {
+			showtab($(this).attr('id'));
+		})
+	});
+</script>

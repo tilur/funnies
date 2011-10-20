@@ -11,7 +11,7 @@ h1						{ font:normal 3em 'Special Elite'; color:#ff0; margin:2px 0 10px 0; text
 						{ border:solid 1px #ff0; border-radius:3px; background-color:#ddd; color:#000; font:normal .85em 'Ubuntu Condensed'; }
 .form-input input:focus, .form-input textarea:focus, .form-input select:focus
 						{ box-shadow:0 0 7px #fff; }
-.form-row button		{ height:30px; background-color:#ff0; font:normal 1.2em 'Ubuntu Condensed'; border:solid 1px transparent; border-radius:6px; margin-right:5px; cursor:pointer; }
+.form-row button		{ height:30px; background-color:#ff0; font:normal 1.2em 'Ubuntu Condensed'; border:solid 1px transparent; border-radius:6px; margin-right:5px; cursor:pointer; color:#333; }
 .form-row button.last	{ margin-right:0px; }
 .form-row button:hover	{ box-shadow:0 0 7px #fff;  }
 
@@ -21,9 +21,17 @@ h1						{ font:normal 3em 'Special Elite'; color:#ff0; margin:2px 0 10px 0; text
 
 .styled-hr					{ border-top:solid 1px #222; border-bottom:solid 1px #444; margin-bottom:16px; }
 
+
+/*****[ Funnies ]**************************************************************/
 #funny						{ width:700px; min-width:700px; max-width:700px; height:20px; min-height:20px; max-height:20px; }
 #sender						{ width:330px; }
 #receiver					{ width:350px; }
 #context					{ width:700px; min-width:700px; max-width:700px; height:35px; min-height:35px; max-height:35px; }
 #add_funnies-sender, #add_funnies-receiver, #add_funnies-context, #add_funnies-buttons
 							{ display:none; }
+
+#wrapper-funnies_post							{ }
+.tab											{ float:left; font:normal 1.2em 'Ubuntu Condensed'; border-top-left-radius:6px; border-top-right-radius:6px; border:solid 1px transparent; padding:0 8px; color:#ccc; cursor:pointer; }
+.tab.active										{ background-color:#ff0; color:#333; }
+.posts											{ clear:both; border:solid 1px #ff0; padding:8px; }
+#tab-recent-posts								{ display:none; }
