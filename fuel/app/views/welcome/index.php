@@ -10,12 +10,12 @@
 
 	<div id="add_funnies-sender" class="form-row float-left w50">
 		<div class="form-label">Who said it?</div>
-		<div class="form-input"><?php echo Form::input($formData['sender']); ?></div>
+		<div class="form-input"><?php echo Form::select($formData['sender']); ?></div>
 	</div>
 
 	<div id="add_funnies-receiver" class="form-row float-left w50">
 		<div class="form-label">Did they say it to someone?</div>
-		<div class="form-input"><?php echo Form::input($formData['receiver']); ?></div>
+		<div class="form-input"><?php echo Form::select($formData['receiver']); ?></div>
 	</div>
 
 	<div id="add_funnies-context" class="form-row mb16">
@@ -38,131 +38,23 @@
 
 <h1>Oh The Laughs</h1>
 
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
-<p>stuff goes here</p>
+<div id="wrapper-funnies_post">
+	<div class="tabs">
+		<div class="tab active">Funniest</div>
+		<div class="tab active">Recent</div>
+	</div>
+
+	<div class="posts">
+		<div class="post funniest">
+			<?php foreach ($posts['funniest'] AS $i => $post) {
+				echo $post['f_body'].'<br>';
+			}?>
+		</div>
+
+		<div class="post recent">
+			<?php foreach ($posts['recent'] AS $i => $post) {
+				echo $post['f_body'].'<br>';
+			}?>
+		</div>
+	</div>
+</div>

@@ -20,6 +20,8 @@ class Controller_Welcome extends Controller_Base {
 	public function action_index()
 	{
 		$data['formData'] = Model_Funny::form_prepare();
+		$data['posts']['recent'] = Model_Funny::get_posts();
+		$data['posts']['funniest'] = Model_Funny::get_posts(1);
 
 		$this->_view->content = View::factory('welcome/index', $data);
 	}

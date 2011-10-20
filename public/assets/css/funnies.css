@@ -7,9 +7,9 @@ h1						{ font:normal 3em 'Special Elite'; color:#ff0; margin:2px 0 10px 0; text
 
 .form-row				{ margin-bottom:10px; }
 .form-input				{ margin-top:2px; }
-.form-input input, .form-input textarea
+.form-input input, .form-input textarea, .form-input select
 						{ border:solid 1px #ff0; border-radius:3px; background-color:#ddd; color:#000; font:normal .85em 'Ubuntu Condensed'; }
-.form-input input:focus, .form-input textarea:focus
+.form-input input:focus, .form-input textarea:focus, .form-input select:focus
 						{ box-shadow:0 0 7px #fff; }
 .form-row button		{ height:30px; background-color:#ff0; font:normal 1.2em 'Ubuntu Condensed'; border:solid 1px transparent; border-radius:6px; margin-right:5px; cursor:pointer; }
 .form-row button.last	{ margin-right:0px; }
