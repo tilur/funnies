@@ -32,6 +32,8 @@
 
 <h1>Oh The Laughs</h1>
 
+<p>Here are some of the things overheard in the office. Vote for the ones that really tickle you and keep the jokes alive.</p>
+
 <div id="wrapper-funnies_post">
 	<div class="tabs">
 		<div id="tab-funniest" class="tab active">Funniest</div>
@@ -39,12 +41,14 @@
 	</div>
 
 	<div class="posts">
-		<div id="tab-funniest-posts" class="post funniest">
+		<div id="tab-funniest-posts">
 			<?php echo $posts['funniest']; ?>
+			<?php echo $pagination; ?>
 		</div>
 
-		<div id="tab-recent-posts" class="post recent">
+		<div id="tab-recent-posts">
 			<?php echo $posts['recent']; ?>
+			<?php echo $pagination; ?>
 		</div>
 	</div>
 </div>

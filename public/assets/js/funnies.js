@@ -15,6 +15,10 @@ function add_funnies(way) {
 	}
 }
 
+function page_funnies(page, view) {
+	
+}
+
 function showtab(which) {
 	$('#wrapper-funnies_post').find('.tabs').find('div').each(function () {
 		$(this).removeClass('active');

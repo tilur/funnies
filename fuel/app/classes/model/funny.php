@@ -24,14 +24,18 @@ class Model_Funny extends Model {
 		return $formData;
 	}
 
-	static public function get_posts($sort=0) {
+	static public function get_posts($sort=0, $limit=10) {
 		try {
+			$result = DB::query(Model_Funny::build_posts_select($sort, $limit), DB::SELECT)->execute();
+			/*
 			$result = DB::query('
-				SELECT f_body, u1.u_name sender, u2.u_name receiver
+				SELECT f_funnies_id, f_sender_id, f_receiver_id, f_body, f_context, f_votes, f_date_added, u1.u_name sender, u2.u_name receiver
 				FROM funnies
 				INNER JOIN users AS u1 ON f_sender_id = u1.u_user_id
 				LEFT JOIN users AS u2 ON f_receiver_id = u2.u_user_id
-				ORDER BY '.($sort === 0 ? 'f_date_added' : 'f_votes').' DESC', DB::SELECT)->execute();
+				ORDER BY '.($sort === 0 ? 'f_date_added' : 'f_votes').' DESC
+				LIMIT '.$limit, DB::SELECT)->execute();
+			*/
 		}
 		catch (Database_Exception $e) {
 			$array[0]['f_body'] = 'Oops! No database connection';
@@ -39,6 +43,56 @@ class Model_Funny extends Model {
 		}
 
 		return $result->as_array();
+	}
+
+	static public function get_pagination($perPage) {
+		$config = array(
+		    'pagination_url' => 'javascript::ding()',
+		    'total_items' => Model_Funny::get_posts_count(),
+		    'per_page' => $perPage,
+		    'uri_segment' => 3,
+		    'template' => array(
+		        'wrapper_start' => '<center><div class="pagination">',
+				'wrapper_end' => '</div></center>',
+				'page_start' => ' ',
+		        'page_end' => ' ',
+		        'previous_start' => ' ',
+		        'previous_end' => ' ',
+		        'previous_mark' => '',
+		        'next_start' => ' ',
+		        'next_end' => ' ',
+		        'next_mark' => '',
+		        'active_start' => ' ',
+		        'active_end' => ' ',
+		    ),
+		);
+
+		Pagination::set_config($config);
+
+		return Pagination::create_links();
+	}
+
+	static public function get_posts_count() {
+		$result = DB::query(Model_Funny::build_posts_select(0, 0))->execute();
+
+		return count($result->as_array());
+	}
+
+	static private function build_posts_select($sort=0, $limit=10, $offset=0) {
+		$query = 'SELECT f_funnies_id, f_sender_id, f_receiver_id, f_body, f_context, f_votes, f_date_added, u1.u_name sender, u2.u_name receiver
+			FROM funnies
+			INNER JOIN users AS u1 ON f_sender_id = u1.u_user_id
+			LEFT JOIN users AS u2 ON f_receiver_id = u2.u_user_id
+			ORDER BY '.($sort === 0 ? 'f_date_added' : 'f_votes').' DESC';
+		
+		if ($limit !== 0) {
+			$query .= ' LIMIT '.$limit;
+		}
+		if ($offset !== 0) {
+			$query .= ' OFFSET '.$offset;
+		}
+
+		return $query;
 	}
 
 	static public function get_users() {
