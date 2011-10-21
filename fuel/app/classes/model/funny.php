@@ -25,29 +25,47 @@ class Model_Funny extends Model {
 	}
 
 	static public function get_posts($sort=0) {
-		$query = DB::select()	
-			->from('funnies');
-		
-		if ($sort === 0) { $query->order_by('f_date_added','desc'); }
-		elseif ($sort === 1) { $query->order_by('f_votes','desc'); }
-		
-		$result = $query->execute();
-		
+		try {
+			$result = DB::query('
+				SELECT f_body, u1.u_name sender, u2.u_name receiver
+				FROM funnies
+				INNER JOIN users AS u1 ON f_sender_id = u1.u_user_id
+				LEFT JOIN users AS u2 ON f_receiver_id = u2.u_user_id
+				ORDER BY '.($sort === 0 ? 'f_date_added' : 'f_votes').' DESC', DB::SELECT)->execute();
+		}
+		catch (Database_Exception $e) {
+			$array[0]['f_body'] = 'Oops! No database connection';
+			return $array;
+		}
+
 		return $result->as_array();
 	}
 
 	static public function get_users() {
+		$optUsers[''] = '--';
+
 		$query = DB::select()
 			->from('users')
 			->order_by('u_name');
-		$result = $query->execute();
+		try {
+			$result = $query->execute();		
+		}
+		catch (Database_Exception $e) {
+			return $optUsers;
+		}
 
-		$optUsers[''] = '--';
 		foreach ($result->as_array() AS $i => $user) {
 			$optUsers[$user['u_user_id']] = $user['u_name'];
 		}
 
 		return $optUsers;
+	}
+
+	static public function display_posts($posts) {
+		foreach ($posts AS $i => $post) {
+			echo $post['f_body'].'<br>';
+		}
+		
 	}
 }
 

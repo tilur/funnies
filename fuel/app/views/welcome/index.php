@@ -40,15 +40,11 @@
 
 	<div class="posts">
 		<div id="tab-funniest-posts" class="post funniest">
-			<?php foreach ($posts['funniest'] AS $i => $post) {
-				echo $post['f_body'].'<br>';
-			}?>
+			<?php echo $posts['funniest']; ?>
 		</div>
 
 		<div id="tab-recent-posts" class="post recent">
-			<?php foreach ($posts['recent'] AS $i => $post) {
-				echo $post['f_body'].'<br>';
-			}?>
+			<?php echo $posts['recent']; ?>
 		</div>
 	</div>
 </div>
