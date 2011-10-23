@@ -47,7 +47,7 @@ class Model_Funny extends Model {
 
 	static public function get_pagination($perPage) {
 		$config = array(
-		    'pagination_url' => 'javascript::ding()',
+		    'pagination_url' => 'javascript::ding(',
 		    'total_items' => Model_Funny::get_posts_count(),
 		    'per_page' => $perPage,
 		    'uri_segment' => 3,
