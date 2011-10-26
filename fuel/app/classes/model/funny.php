@@ -27,15 +27,6 @@ class Model_Funny extends Model {
 	static public function get_posts($sort=0, $limit=10, $offset) {
 		try {
 			$result = DB::query(Model_Funny::build_posts_select($sort, $limit, $offset), DB::SELECT)->execute();
-			/*
-			$result = DB::query('
-				SELECT f_funnies_id, f_sender_id, f_receiver_id, f_body, f_context, f_votes, f_date_added, u1.u_name sender, u2.u_name receiver
-				FROM funnies
-				INNER JOIN users AS u1 ON f_sender_id = u1.u_user_id
-				LEFT JOIN users AS u2 ON f_receiver_id = u2.u_user_id
-				ORDER BY '.($sort === 0 ? 'f_date_added' : 'f_votes').' DESC
-				LIMIT '.$limit, DB::SELECT)->execute();
-			*/
 		}
 		catch (Database_Exception $e) {
 			$array[0]['f_body'] = 'Oops! No database connection';
@@ -123,4 +114,4 @@ class Model_Funny extends Model {
 	}
 }
 
-/* End of file welcome.php */
+/* End of file funny.php */

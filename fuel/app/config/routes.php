@@ -1,7 +1,7 @@
 <?php
 return array(
-	'_root_'  => 'welcome/index',  // The default route
-	'_404_'   => 'welcome/404',    // The main 404 route
+	'_root_'  => 'funnies/index',  // The default route
+	'_404_'   => 'funnies/404',    // The main 404 route
 	
 	/**
 	 * This is an example of a BASIC named route (used in reverse routing).
@@ -9,7 +9,4 @@ return array(
 	 * after it.
 	 */
 	// 'foo/bar' => array('welcome/foo', 'name' => 'foo'),
-	'funnies'							=> 'welcome/index',
-	'funnies/(funniest|recent)'			=> 'welcome/index',
-	'funnies/(funniest|recent)/:any'	=> 'welcome/index',
 );
