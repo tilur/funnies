@@ -9,4 +9,7 @@ return array(
 	 * after it.
 	 */
 	// 'foo/bar' => array('welcome/foo', 'name' => 'foo'),
+	'funnies'							=> 'welcome/index',
+	'funnies/(funniest|recent)'			=> 'welcome/index',
+	'funnies/(funniest|recent)/:any'	=> 'welcome/index',
 );

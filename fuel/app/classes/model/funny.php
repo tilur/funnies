@@ -24,9 +24,9 @@ class Model_Funny extends Model {
 		return $formData;
 	}
 
-	static public function get_posts($sort=0, $limit=10) {
+	static public function get_posts($sort=0, $limit=10, $offset) {
 		try {
-			$result = DB::query(Model_Funny::build_posts_select($sort, $limit), DB::SELECT)->execute();
+			$result = DB::query(Model_Funny::build_posts_select($sort, $limit, $offset), DB::SELECT)->execute();
 			/*
 			$result = DB::query('
 				SELECT f_funnies_id, f_sender_id, f_receiver_id, f_body, f_context, f_votes, f_date_added, u1.u_name sender, u2.u_name receiver
@@ -45,9 +45,9 @@ class Model_Funny extends Model {
 		return $result->as_array();
 	}
 
-	static public function get_pagination($perPage) {
+	static public function get_pagination($sort, $perPage) {
 		$config = array(
-		    'pagination_url' => 'javascript::ding(',
+		    'pagination_url' => 'funnies/'.($sort === 0 ? 'recent' : 'funniest'),
 		    'total_items' => Model_Funny::get_posts_count(),
 		    'per_page' => $perPage,
 		    'uri_segment' => 3,
@@ -58,10 +58,10 @@ class Model_Funny extends Model {
 		        'page_end' => ' ',
 		        'previous_start' => ' ',
 		        'previous_end' => ' ',
-		        'previous_mark' => '',
+		        'previous_mark' => ' ',
 		        'next_start' => ' ',
 		        'next_end' => ' ',
-		        'next_mark' => '',
+		        'next_mark' => ' ',
 		        'active_start' => ' ',
 		        'active_end' => ' ',
 		    ),

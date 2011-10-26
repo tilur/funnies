@@ -36,19 +36,19 @@
 
 <div id="wrapper-funnies_post">
 	<div class="tabs">
-		<div id="tab-funniest" class="tab active">Funniest</div>
-		<div id="tab-recent" class="tab">Recent</div>
+		<div id="tab-funniest" class="tab<?php echo $tabStatus['funniest']; ?>"><?php echo Html::anchor('funnies/funniest', 'Funniest'); ?></div>
+		<div id="tab-recent" class="tab<?php echo $tabStatus['recent']; ?>"><?php echo Html::anchor('funnies/recent', 'Recent'); ?></div>
 	</div>
 
 	<div class="posts">
 		<div id="tab-funniest-posts">
-			<?php echo $posts['funniest']; ?>
+			<?php echo $posts; ?>
 			<?php echo $pagination; ?>
 		</div>
 
 		<div id="tab-recent-posts">
-			<?php echo $posts['recent']; ?>
-			<?php echo $pagination; ?>
+			<?php //echo $posts['recent']; ?>
+			<?php //echo $pagination['recent']; ?>
 		</div>
 	</div>
 </div>
@@ -57,9 +57,11 @@
 	$('#funny').bind('focus', function() {
 		add_funnies('show');
 	});
+	/*
 	$('#wrapper-funnies_post').find('.tabs').find('div').each(function () {
 		$(this).bind('click', function() {
 			showtab($(this).attr('id'));
 		})
 	});
+	*/
 </script>

@@ -22,9 +22,13 @@ class Controller_Welcome extends Controller_Base {
 		$data['formData'] = Model_Funny::form_prepare();
 
 		$perPage = 2;
-		$data['posts']['recent'] = View::factory('welcome/posts', array('posts'=>Model_Funny::get_posts(0, $perPage)));
-		$data['posts']['funniest'] = View::factory('welcome/posts', array('posts'=>Model_Funny::get_posts(1, $perPage)));
-		$data['pagination'] = Model_Funny::get_pagination($perPage);
+		$offset = Uri::segment(3) ? Uri::segment(3) : 0;
+		$type = Uri::segment(2) == 'funniest' ? 1 : 0;
+
+		$data['posts'] = View::factory('welcome/posts', array('posts'=>Model_Funny::get_posts($type, $perPage, $offset)));
+		$data['pagination'] = Model_Funny::get_pagination($type, $perPage);
+		$data['tabStatus']['funniest'] = ($type === 1 ? ' active' : '');
+		$data['tabStatus']['recent'] = ($type === 0 ? ' active' : '');
 
 		$this->_view->content = View::factory('welcome/index', $data, false);
 	}

@@ -36,7 +36,9 @@ h1						{ font:normal 3em 'Special Elite'; color:#ff0; margin:2px 0 10px 0; text
 #wrapper-add_funnies							{ margin-bottom:30px; }
 #wrapper-funnies_post							{ margin-bottom:30px; }
 .tab											{ float:left; font:normal 1.2em 'Ubuntu Condensed'; border-top-left-radius:6px; border-top-right-radius:6px; border:solid 1px transparent; padding:0 8px; color:#ccc; cursor:pointer; }
+	.tab a 										{ color:#ccc; text-decoration:none; }
 .tab.active										{ background-color:#ff0; color:#333; }
+	.tab.active a 								{ color:#333; text-decoration:none; }
 #tab-recent-posts								{ display:none; }
 .posts											{ clear:both; border:solid 1px #ff0; border-radius:6px; border-top-left-radius:0px; padding-top:30px; }
 	.post										{ width:665px; max-width:655px; padding:5px; background:url(../img/bg-transparent-black.png); margin:0 auto 30px auto; overflow:auto; border:solid 1px transparent; border-radius:6px; }
